@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:paint"
+        xmlns:local="clr-namespace:paint" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -11,19 +11,35 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
-            <Button Padding="3" Margin="3"/>
-            <Button Padding="3" Margin="3"/>
-            <Button Padding="3" Margin="3"/>
-            <Button Padding="3" Margin="3"/>
-            <StackPanel Orientation="Horizontal">
-                <Image Margin="3"/>
-                <Slider VerticalAlignment="Center" Width="100"/>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Background="LightBlue">
+            <Button Padding="3" Margin="3" Background="Black">
+                <Button.Content>
+                    <Image Source="iconSave.png"/>
+                </Button.Content>
+            </Button>
+            <Button Padding="3" Margin="3" Background="Black">
+                <Button.Content>
+                    <Image Source="iconSelect.png"/>
+                </Button.Content>
+            </Button>
+            <Button Padding="3" Margin="3" Background="Black">
+                <Button.Content>
+                    <Image Source="iconErase.png"/>
+                </Button.Content>
+            </Button>
+            <Button Padding="3" Margin="3" Background="Black">
+                <Button.Content>
+                    <Image Source="iconClear.png"/>
+                </Button.Content>
+            </Button>
+            <StackPanel Orientation="Horizontal" Background="Black" Margin="3">
+                <Image Margin="3" Source="iconWeigth.png"/>
+                <Slider VerticalAlignment="Center" Width="100" Margin="3"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Image Margin="3"/>
-                <ComboBox Padding="3" Margin="3"/>
+            <StackPanel Orientation="Horizontal" Background="Black" Margin="3">
+                <Image Margin="3" Source="iconColor.png"/>
+                <xctk:ColorPicker Padding="3" Margin="6" Width="100"/>
             </StackPanel>
         </StackPanel>
     </Grid>
