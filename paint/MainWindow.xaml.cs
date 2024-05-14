@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Microsoft.Win32;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -77,6 +79,30 @@ namespace paint
             {
                 inkCanvas.DefaultDrawingAttributes.Width = ((Slider)sender).Value;
                 inkCanvas.DefaultDrawingAttributes.Height = ((Slider)sender).Value;
+            }
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Pliki obrazów|*.jpg;*.png;*.bmp;";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                SaveAsImage(saveFileDialog.FileName);
+            }
+        }
+
+        private void SaveAsImage(string fileName)
+        {
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)inkCanvas.ActualWidth, (int)inkCanvas.ActualHeight, 96d, 96d, PixelFormats.Default);
+            rtb.Render(inkCanvas);
+
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(rtb));
+
+            using (var fs = new FileStream(fileName, FileMode.Create))
+            {
+                encoder.Save(fs);
             }
         }
     }

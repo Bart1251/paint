@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Background="LightBlue">
-            <Button Padding="3" Margin="3" Background="Black">
+            <Button Padding="3" Margin="3" Background="Black" Click="Save">
                 <Button.Content>
                     <Image Source="iconSave.png"/>
                 </Button.Content>
