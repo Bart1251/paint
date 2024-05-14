@@ -18,28 +18,28 @@
                     <Image Source="iconSave.png"/>
                 </Button.Content>
             </Button>
-            <Button Padding="3" Margin="3" Background="Black">
+            <Button Padding="3" Margin="3" Background="Black" Click="Select">
                 <Button.Content>
                     <Image Source="iconSelect.png"/>
                 </Button.Content>
             </Button>
-            <Button Padding="3" Margin="3" Background="Black">
+            <Button Padding="3" Margin="3" Background="Black" Click="EraseModeChange">
                 <Button.Content>
                     <Image Source="iconErase.png"/>
                 </Button.Content>
             </Button>
-            <Button Padding="3" Margin="3" Background="Black">
+            <Button Padding="3" Margin="3" Background="Black" Click="ClearCanvas">
                 <Button.Content>
                     <Image Source="iconClear.png"/>
                 </Button.Content>
             </Button>
             <StackPanel Orientation="Horizontal" Background="Black" Margin="3">
                 <Image Margin="3" Source="iconWeigth.png"/>
-                <Slider VerticalAlignment="Center" Width="100" Margin="3"/>
+                <Slider VerticalAlignment="Center" Minimum="1" Maximum="20" Width="100" Height="20" Value="4" ValueChanged="ThicknessChange"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Background="Black" Margin="3">
                 <Image Margin="3" Source="iconColor.png"/>
-                <xctk:ColorPicker Padding="3" Margin="6" Width="100"/>
+                <xctk:ColorPicker Padding="3" Margin="6" Width="100" x:Name="ColorPicker" SelectedColorChanged="SelectedColorChange" SelectedColor="Blue"/>
             </StackPanel>
         </StackPanel>
         <InkCanvas Grid.Row="1" x:Name="inkCanvas" Background="White" EditingMode="Ink">
