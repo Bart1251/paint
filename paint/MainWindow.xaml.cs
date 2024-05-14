@@ -16,6 +16,8 @@ namespace paint
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool eraseMode = false;
+        private bool selectMode = false;
         public MainWindow()
         {
             InitializeComponent();
